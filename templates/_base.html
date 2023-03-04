@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='img/1489135991.svg') }}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename='/css/dist/output.css')}}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+  </head>
+  <body class="dark:bg-slate-900 dark:text-yellow-500">
+    {% block content%}
+    <header class="container mx-auto">
+      <a href="/">
+        <span> </span>
+        <span
+          ><h1 class="font-bold text-6xl text-center pb-3">Voyager Book</h1>
+        </span>
+      </a>
+
+      {% if session['name'] %}
+      <span class="form">
+        <h3>Welcome back</h3>
+        <h3>{{session['name']}}</h3>
+        <h3>ip:{{session['ip_address']}}</h3>
+        <div class="dropdown">
+          <button class="dropbtn">
+            <img
+              height="13px"
+              src="{{ url_for('static',filename='img/arrow-double-end-svgrepo-com.svg') }}"
+              alt="arrow-double-end"
+            />
+            Settings
+            <i class="fa fa-caret-down"></i>
+          </button>
+          <div class="dropdown-content">
+            <a href="/out">Log Out</a>
+            <a href="#">Link 2</a>
+            <a href="#">Link 3</a>
+          </div>
+        </div>
+      </span>
+      {% else %} {% include '_login-form.html' %} {% endif %}
+    </header>
+    <div class="flex justify-between pt-big">
+      <ul>
+        <li><a href="/map">Voyager Map</a></li>
+        <li><a href="/photos">Voyager Photos</a></li>
+        <li><a href="/reviews">Voyager Reviews</a></li>
+      </ul>
+    </div>
+    <div class="menu2_block">
+      <a href="/change_list"
+        ><button class="btn_build_map">Edit country list</button></a
+      >
+      <a href="/question"
+        ><button class="btn_build_map">Community Question</button></a
+      >
+      <span class="search_box"> {% include '_search_form.html' %} </span>
+    </div>
+
+    <div class="m-auto">
+      {% for msg in get_flashed_messages() %}
+      <div class="error_message">{{msg}}</div>
+
+      {% endfor %}
+      <h1 class="text-mainLightColor text-6xl">text</h1>
+
+      <div class="content">{% block base %} {% endblock %}</div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/site.js') }}"></script>
+    <div>{% include '_bottom_block.html' %}</div>
+    {% endblock %}
+  </body>
+</html>
