@@ -12,6 +12,7 @@ module.exports = {
         big: '50px'
       }
       
+      
     },
   },
   plugins: [],

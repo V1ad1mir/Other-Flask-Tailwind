@@ -52,35 +52,40 @@
       </span>
       {% else %} {% include '_login-form.html' %} {% endif %}
     </header>
-    <div class="flex justify-between pt-big">
-      <ul>
-        <li><a href="/map">Voyager Map</a></li>
-        <li><a href="/photos">Voyager Photos</a></li>
-        <li><a href="/reviews">Voyager Reviews</a></li>
-      </ul>
-    </div>
-    <div class="menu2_block">
-      <a href="/change_list"
-        ><button class="btn_build_map">Edit country list</button></a
+    <nav class="flex justify-center space-x-5" >
+      <a class="hover:bg-mainLightColor py-2 px-1 rounded-full" href="/map"
+        >Voyager Map</a
       >
-      <a href="/question"
-        ><button class="btn_build_map">Community Question</button></a
+      <a class="hover:bg-mainLightColor py-2 px-1 rounded-full" href="/photos"
+        >Voyager Photos</a
       >
-      <span class="search_box"> {% include '_search_form.html' %} </span>
-    </div>
+      <a class="hover:bg-mainLightColor py-2 px-1 rounded-full" href="/reviews"
+        >Voyager Reviews</a
+      >
+      <a
+        class="hover:bg-mainLightColor py-2 px-1 rounded-full"
+        href="/change_list"
+        >Edit country list
+      </a>
+      <a class="hover:bg-mainLightColor py-2 px-1 rounded-full" href="/question"
+        >Community Question
+      </a>
+      <span class="search_box hover:bg-mainLightColor py-2 px-1 rounded-full">
+        {% include '_search_form.html' %}
+      </span>
+    </nav>
 
-    <div class="m-auto">
+    <main class="container mx-auto">
       {% for msg in get_flashed_messages() %}
       <div class="error_message">{{msg}}</div>
-
       {% endfor %}
-      <h1 class="text-mainLightColor text-6xl">text</h1>
-
       <div class="content">{% block base %} {% endblock %}</div>
-    </div>
+    </main>
 
     <script src="{{ url_for('static', filename='js/site.js') }}"></script>
-    <div>{% include '_bottom_block.html' %}</div>
+    <footer class="text-center sticky">
+      {% include '_bottom_block.html' %}
+    </footer>
     {% endblock %}
   </body>
 </html>
