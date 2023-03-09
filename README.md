@@ -12,7 +12,7 @@ Getting Started
 
 Clone this repository.
 
-Compile the Tailwind CSS styles by running npx tailwindcss-cli@latest build -o static/css/style.css.
+
 Start the Flask development server by running flask run.
 Open your web browser and go to http://localhost:5000.
 
@@ -21,7 +21,11 @@ Project Structure
 app.py - the main Flask application.
 static/css/style.css - the compiled CSS styles.
 templates/ - the HTML templates used by the Flask application.
-Usage
+
+Usage(Recommended by VSCode)
+
+Project ready to start.
+
 
 This Flask application provides a basic template for a web application that uses Tailwind CSS for styling. You can modify the HTML templates and CSS styles to suit your needs.
 
